@@ -15,20 +15,20 @@ class Movie
 
     public function setDiscount()
     {
-        if ($this->year < 2000) {
-            $this->finalPrice = $this->prezzo * 0.2;
+        if ($this->year < 1995) {
+            $this->finalPrice = $this->prezzo * (1 - 0.2);
         } else $this->finalPrice = $this->prezzo;
         return $this->finalPrice;
     }
 }
 
 
-$movieOne = new Movie('Carosello', 1000);
-$movieOne->setYear(1995);
+$movieOne = new Movie('Carosello', 100);
+$movieOne->setYear(1990);
 $movieOne->setDiscount();
 var_dump($movieOne);
 
-$movieTwo = new Movie('Mr.Robots', 337);
-$movieTwo->setYear(1995);
+$movieTwo = new Movie('Mr.Robots', 100);
+$movieTwo->setYear(2000);
 $movieTwo->setDiscount();
 var_dump($movieTwo);
