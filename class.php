@@ -2,33 +2,27 @@
 
 class Movie
 {
-    public function __construct($_titolo, int $_prezzo)
+    public function __construct($_titolo, int $_year, int $_prezzo)
     {
         $this->titolo = $_titolo;
-        $this->prezzo = $_prezzo;
-    }
-    public function setYear($_year)
-    {
-        return $this->year = $_year;
+        $this->year = $_year;
+        $this->originalPrice = $_prezzo;
     }
 
-
-    public function setDiscount()
+    public function getFinalPrice()
     {
         if ($this->year < 1995) {
-            $this->finalPrice = $this->prezzo * (1 - 0.2);
-        } else $this->finalPrice = $this->prezzo;
+            $this->finalPrice = $this->originalPrice * (1 - 0.2);
+        } else $this->finalPrice = $this->originalPrice;
         return $this->finalPrice;
     }
 }
 
 
-$movieOne = new Movie('Carosello', 100);
-$movieOne->setYear(1990);
-$movieOne->setDiscount();
+$movieOne = new Movie('Carosello', 1990, 100);
+$movieOne->getFinalPrice();
 var_dump($movieOne);
 
-$movieTwo = new Movie('Mr.Robots', 100);
-$movieTwo->setYear(2000);
-$movieTwo->setDiscount();
+$movieTwo = new Movie('Mr.Robots', 2000, 100);
+$movieTwo->getFinalPrice();
 var_dump($movieTwo);
